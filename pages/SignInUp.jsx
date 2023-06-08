@@ -1,15 +1,15 @@
 import React, { useState } from "react";
-import SignIn from "./SignIn";
-import SignUp from "./SignUp";
+import SignIn from "../components/SignIn";
+import SignUp from "../components/SignUp";
 
 export default function SignInUp() {
   const [isLoginContainerOpen, setIsLoginContainerOpen] = useState(true);
   return (
     <>
       {isLoginContainerOpen ? (
-        <SignIn toggleContainer={{setIsLoginContainerOpen}} />
+        <SignIn toggleContainer={{ setIsLoginContainerOpen }} />
       ) : (
-        <SignUp toggleContainer={{setIsLoginContainerOpen}}/>
+        <SignUp toggleContainer={{ setIsLoginContainerOpen }} />
       )}
     </>
   );
