@@ -1,0 +1,94 @@
+
+
+/* Styling for Dropdown Container */
+.dropdownContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
+
+
+
+
+/* Option dropdownContainer styling */
+.dropdownContainer .selectOption {
+  position: absolute;
+  top: 41%;
+
+  overflow: hidden;
+  padding: 0px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 15px;
+  width: 200px;
+  background-color: rgba(0, 0, 0, 0.801);
+  margin: 0;
+  font-size: 1.1rem;
+  cursor: pointer;
+  height: 60px;
+  transition: 0.4s all ease-out;
+  border: 1px solid rgba(255, 255, 255, 0);
+}
+
+
+/* Display options on hover */
+.dropdownContainer .selectOption:hover {
+  height: 215px;
+  border: 1px solid rgba(255, 255, 255, 0.262);
+
+}
+
+.dropdownContainer .selectOption .defaultOption .arrowIcon {
+  transition: 0.4s all ease-out;
+}
+
+/* Rotate dropdown icon on hover */
+.dropdownContainer .selectOption:hover .defaultOption .arrowIcon {
+  transform: rotate(180deg);
+}
+
+.dropdownContainer .selectOption .defaultOption {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+/* Styling for options */
+
+.dropdownContainer .selectOption .options .option1, .option2, .option3{
+  padding: 5px;
+  padding-left: 10px;
+  border-radius: 10px;
+  transition: 0.2s all ease-out;
+}
+
+.dropdownContainer .selectOption .options .option1:hover, .option2:hover, .option3:hover{
+  background-color: #1A2733;
+}
+
+
+
+
+
+.icon {
+  margin-right: 7px;
+}
+
+
+/* On Click height is set to 60px*/
+.close {
+  height: 60px !important;
+}
+
+
+
+
+
+
+
+
+
+
