@@ -8,7 +8,6 @@ const customFetch = async (url, { body, ...customConfig }) => {
     "content-type": "application/x-www-form-urlencoded",
   };
 
-
   if (token) {
     headers.Authorization = `Bearer ${token}`;
   }
@@ -61,11 +60,10 @@ export const login = (email, password) => {
   });
 };
 
-
-export const signUp = (name, email, password, confirmPassword) => {
+export const signUp = (email, businessName, password, confirmPassword) => {
   return customFetch(API_URLS.signup(), {
     method: "POST",
-    body: { name, email, password, confirm_password: confirmPassword },
+    body: { businessName, email, password, confirmPassword },
   });
 };
 
@@ -74,8 +72,3 @@ export const signout = () => {
     method: "GET",
   });
 };
-
-
-
-
-
