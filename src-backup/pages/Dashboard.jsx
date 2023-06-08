@@ -29,10 +29,17 @@ import { getSellerProfile } from "../api";
 import jwtDecode from "jwt-decode";
 import CategoryForm from "../components/CategoryForm";
 import SubcategoryForm from "../components/SubcategoryForm";
+import AddProductForm from "../components/AddProductForm";
+import AddStoreForm from "../components/AddStoreForm";
 
 function Dashboard(props) {
-  const { dispatch, userReducer, categoriesReducer, subcategoriesReducer } =
-    props;
+  const {
+    dispatch,
+    userReducer,
+    storeReducer,
+    categoriesReducer,
+    subcategoriesReducer,
+  } = props;
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -43,6 +50,7 @@ function Dashboard(props) {
         const response = await getSellerProfile(user._id);
         const { seller, categories, subCategories, store, products } =
           response.data;
+
         dispatch(setUser(seller));
         dispatch(setCategories(categories));
         dispatch(setStore(store));
@@ -97,6 +105,15 @@ function Dashboard(props) {
         categoriesReducer={categoriesReducer}
         subcategoriesReducer={subcategoriesReducer}
       />
+      <AddProductForm
+        dispatch={dispatch}
+        categoriesReducer={categoriesReducer}
+        subcategoriesReducer={subcategoriesReducer}
+        userReducer={userReducer}
+        storeReducer={storeReducer}
+      />
+
+      <AddStoreForm dispatch={dispatch}/>
     </div>
   );
 }

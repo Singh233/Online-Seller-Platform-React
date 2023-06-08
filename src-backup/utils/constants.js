@@ -11,6 +11,8 @@ export const API_URLS = {
   createCategory: () => `${API_ROOT}/category/create-category`,
   createSubcategory: () => `${API_ROOT}/category/create-subcategory`,
 
+  createStore: () => `${API_ROOT}/store/create`,
+
   getProducts: (offset, limit) =>
     `${API_ROOT}/products/index?offset=${offset}&limit=${limit}`,
   createProduct: () => `${API_ROOT}/products/create`, //
