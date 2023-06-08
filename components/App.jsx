@@ -1,11 +1,10 @@
-import { useState } from "react";
 import "../styles/App.css";
+import SignInUp from "./SignInUp";
 
 function App() {
-
   return (
     <>
-      <h1>Vite + React</h1>
+      <SignInUp />
     </>
   );
 }
