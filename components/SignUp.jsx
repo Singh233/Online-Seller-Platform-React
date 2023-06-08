@@ -3,9 +3,14 @@ import React, { useState } from "react";
 import styles from "../styles/SignInUp.module.scss";
 import { toast } from "react-hot-toast";
 import { signUp } from "../api/";
+import { LOCALSTORAGE_TOKEN_KEY, setItemInLocalStorage } from "../utils";
+import { useNavigate } from "react-router-dom";
+import { setUser } from "../actions";
 
 export default function SignUp(props) {
   const { setIsLoginContainerOpen } = props.toggleContainer;
+  const { dispatch, toggleContainer } = props;
+  const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -29,9 +34,16 @@ export default function SignUp(props) {
       password,
       confirmPassword
     );
-    console.log(response);
+
     if (response.success) {
+      setItemInLocalStorage(
+        LOCALSTORAGE_TOKEN_KEY,
+        response.data.token ? response.data.token : null
+      );
+      dispatch(setUser(response.data.user));
+      navigate("/");
       return toast.success("Registered successfully!");
+
     }
     toast.error(response.message);
   };
@@ -54,9 +66,7 @@ export default function SignUp(props) {
 
           <div className={styles.footerInfo}>
             Already have an account?
-            <p onClick={() => setIsLoginContainerOpen(true)}>
-              Sign In here
-            </p>
+            <p onClick={() => setIsLoginContainerOpen(true)}>Sign In here</p>
           </div>
         </div>
 

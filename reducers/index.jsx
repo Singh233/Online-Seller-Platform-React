@@ -59,7 +59,7 @@ const userReducer = (state = initialUserState, action) => {
       case SET_USER:
         return action.payload;
       case CLEAR_USER:
-        return null;
+        return initialUserState;
       default:
         return state;
     }
@@ -71,7 +71,7 @@ const userReducer = (state = initialUserState, action) => {
       case SET_STORE:
         return action.payload;
       case CLEAR_STORE:
-        return null;
+        return initialStoreState;
       default:
         return state;
     }
@@ -119,7 +119,7 @@ const userReducer = (state = initialUserState, action) => {
       case SET_SEARCH_RESULTS:
         return action.payload;
       case CLEAR_SEARCH_RESULTS:
-        return [];
+        return initialSearchState;
       default:
         return state;
     }

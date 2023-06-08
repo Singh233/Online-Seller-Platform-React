@@ -3,11 +3,16 @@ import React, { useState } from "react";
 import styles from "../styles/SignInUp.module.scss";
 import { toast } from "react-hot-toast";
 import { login } from "../api/";
+import { LOCALSTORAGE_TOKEN_KEY, setItemInLocalStorage } from "../utils";
+import { setUser } from "../actions";
+import { useNavigate } from "react-router-dom";
 
 export default function SignIn(props) {
+  const { dispatch, toggleContainer } = props;
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { setIsLoginContainerOpen } = props.toggleContainer;
+  const { setIsLoginContainerOpen } = toggleContainer;
+  const navigate = useNavigate();
 
   const handleLogin = async () => {
     if (!email || !password) {
@@ -15,8 +20,13 @@ export default function SignIn(props) {
     }
 
     const response = await login(email, password);
-    console.log(response);
     if (response.success) {
+      setItemInLocalStorage(
+        LOCALSTORAGE_TOKEN_KEY,
+        response.data.token ? response.data.token : null
+      );
+      dispatch(setUser(response.data.user));
+      navigate("/");
       return toast.success("Logged in successfully!");
     }
     toast.error(response.message);
@@ -40,9 +50,7 @@ export default function SignIn(props) {
 
           <div className={styles.footerInfo}>
             Don't have an account?
-            <p onClick={() => setIsLoginContainerOpen(false)}>
-              Sign Up now
-            </p>
+            <p onClick={() => setIsLoginContainerOpen(false)}>Sign Up now</p>
           </div>
         </div>
 

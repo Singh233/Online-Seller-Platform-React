@@ -1,0 +1,65 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  background-color: black;
+  height: 100vh;
+  width: 100%;
+  color: white;
+
+  .urlCard {
+    display: flex;
+    align-items: center;
+    background-color: #212121;
+    padding: 5px 30px;
+    border-radius: 20px;
+    min-width: 500px;
+
+    .info {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin: 10px;
+    }
+
+    .url {
+      background-color: #3c37ff;
+      // background-color: black;
+      padding: 10px 20px;
+      border-radius: 10px;
+      margin: 10px;
+    }
+  }
+
+  .cardsWrapper {
+    display: flex;
+    flex-direction: column;
+
+    margin-top: 50px;
+
+    .addCategoryCard,
+    .addSubCategoryCard,
+    .addInventoryCard {
+      display: flex;
+      align-items: center;
+      background-color: #212121;
+      padding: 5px 30px;
+      border-radius: 20px;
+      max-width: 500px;
+      margin: 10px;
+      cursor: pointer;
+      transition: all 0.2s ease-out;
+      
+
+      p {
+        font-size: 1.1rem;
+
+        text-align: center;
+
+        svg {
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+}
