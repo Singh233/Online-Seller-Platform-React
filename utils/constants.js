@@ -8,10 +8,14 @@ export const API_URLS = {
   signup: () => `${API_ROOT}/sellers/sign-up`, //
   signout: () => `${API_ROOT}/sellers/sign-out`, //
 
+  createCategory: () => `${API_ROOT}/category/create-category`,
+  createSubcategory: () => `${API_ROOT}/category/create-subcategory`,
+
   getProducts: (offset, limit) =>
     `${API_ROOT}/products/index?offset=${offset}&limit=${limit}`,
   createProduct: () => `${API_ROOT}/products/create`, //
 
+  sellerProfile: (id) => `${API_ROOT}/sellers/profile/${id}`,
 
   searchUsers: (searchText) => `${API_ROOT}/sellers/search?search=${searchText}`,
 };

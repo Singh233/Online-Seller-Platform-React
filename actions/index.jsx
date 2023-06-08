@@ -11,14 +11,17 @@ export const SET_STORE = "SET_STORE";
 export const CLEAR_STORE = "CLEAR_STORE";
 
 // Category actions
+export const SET_CATEGORY= "SET_CATEGORY";
 export const ADD_CATEGORY = "ADD_CATEGORY";
 export const REMOVE_CATEGORY = "REMOVE_CATEGORY";
 
 // Subcategory actions
+export const SET_SUBCATEGORY= "SET_SUBCATEGORY";
 export const ADD_SUBCATEGORY = "ADD_SUBCATEGORY";
 export const REMOVE_SUBCATEGORY = "REMOVE_SUBCATEGORY";
 
 // Inventory actions
+export const SET_PRODUCTS = "SET_PRODUCTS";
 export const ADD_INVENTORY_ITEM = "ADD_INVENTORY_ITEM";
 export const REMOVE_INVENTORY_ITEM = "REMOVE_INVENTORY_ITEM";
 
@@ -52,6 +55,12 @@ export const clearStore = () => ({
 });
 
 // Category actions
+
+export const setCategories = (categories) => ({
+  type: SET_CATEGORY,
+  payload: categories,
+});
+
 export const addCategory = (category) => ({
   type: ADD_CATEGORY,
   payload: category,
@@ -63,6 +72,11 @@ export const removeCategory = (categoryId) => ({
 });
 
 // Subcategory actions
+export const setSubcategory = (subcategories) => ({
+  type: SET_SUBCATEGORY,
+  payload: subcategories,
+});
+
 export const addSubcategory = (subcategory) => ({
   type: ADD_SUBCATEGORY,
   payload: subcategory,
@@ -74,6 +88,11 @@ export const removeSubcategory = (subcategoryId) => ({
 });
 
 // Inventory actions
+export const setProducts = (items) => ({
+  type: SET_PRODUCTS,
+  payload: items,
+});
+
 export const addInventoryItem = (item) => ({
   type: ADD_INVENTORY_ITEM,
   payload: item,

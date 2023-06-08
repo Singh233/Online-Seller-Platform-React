@@ -47,12 +47,6 @@ const customFetch = async (url, { body, ...customConfig }) => {
   }
 };
 
-export const getProducts = (page = 1, limit = 5) => {
-  return customFetch(API_URLS.getProducts(page, limit), {
-    method: "GET",
-  });
-};
-
 export const login = (email, password) => {
   return customFetch(API_URLS.login(), {
     method: "POST",
@@ -67,8 +61,22 @@ export const signUp = (email, businessName, password, confirmPassword) => {
   });
 };
 
-export const signout = () => {
-  return customFetch(API_URLS.signout(), {
+export const createCategory = (name) => {
+  return customFetch(API_URLS.createCategory(), {
+    method: "POST",
+    body: { name },
+  });
+};
+
+export const createSubcategory = (name, categoryId) => {
+  return customFetch(API_URLS.createSubcategory(), {
+    method: "POST",
+    body: { name, categoryId },
+  });
+};
+
+export const getSellerProfile = (id) => {
+  return customFetch(API_URLS.sellerProfile(id), {
     method: "GET",
   });
 };

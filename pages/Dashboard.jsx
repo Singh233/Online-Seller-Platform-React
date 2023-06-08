@@ -9,20 +9,50 @@ import { faSquarePollHorizontal } from "@fortawesome/free-solid-svg-icons";
 import { faBox } from "@fortawesome/free-solid-svg-icons";
 import { faBoxesStacked } from "@fortawesome/free-solid-svg-icons";
 import { connect } from "react-redux";
-import { clearUser } from "../actions";
-import { LOCALSTORAGE_TOKEN_KEY, removeItemInLocalStorage } from "../utils";
+import {
+  addCategory,
+  clearUser,
+  setCategories,
+  setProducts,
+  setStore,
+  setSubcategory,
+  setUser,
+} from "../actions";
+import {
+  LOCALSTORAGE_TOKEN_KEY,
+  getItemInLocalStorage,
+  removeItemInLocalStorage,
+} from "../utils";
 import { Navigate, useNavigate } from "react-router-dom";
 import store from "../Store";
+import { getSellerProfile } from "../api";
+import jwtDecode from "jwt-decode";
+import CategoryForm from "../components/CategoryForm";
+import SubcategoryForm from "../components/SubcategoryForm";
 
 function Dashboard(props) {
-  const { dispatch, userReducer } = props;
+  const { dispatch, userReducer, categoriesReducer, subcategoriesReducer } =
+    props;
   const navigate = useNavigate();
 
-
-  console.log(userReducer)
   useEffect(() => {
+    const sellerProfile = async () => {
+      const userToken = getItemInLocalStorage(LOCALSTORAGE_TOKEN_KEY);
+      if (userToken) {
+        const user = jwtDecode(userToken);
+        const response = await getSellerProfile(user._id);
+        const { seller, categories, subCategories, store, products } =
+          response.data;
+        dispatch(setUser(seller));
+        dispatch(setCategories(categories));
+        dispatch(setStore(store));
+        dispatch(setProducts(products));
+        dispatch(setSubcategory(subCategories));
+      }
+    };
 
-  })
+    sellerProfile();
+  }, []);
 
   const handleLogout = () => {
     dispatch(clearUser());
@@ -60,6 +90,13 @@ function Dashboard(props) {
       </div>
 
       <button onClick={handleLogout}>Logout</button>
+
+      <CategoryForm dispatch={dispatch} categoriesReducer={categoriesReducer} />
+      <SubcategoryForm
+        dispatch={dispatch}
+        categoriesReducer={categoriesReducer}
+        subcategoriesReducer={subcategoriesReducer}
+      />
     </div>
   );
 }
