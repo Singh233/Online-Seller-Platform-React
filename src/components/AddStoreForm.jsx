@@ -103,7 +103,8 @@ export default function AddStoreForm(props) {
           onChange={(e) => setAddress(e.target.value)}
         />
         <input
-          type="number"
+          type="text"
+          pattern="[a-zA-Z0-9]+"
           placeholder="Enter GST number"
           value={gst}
           onChange={(e) => setGst(e.target.value)}

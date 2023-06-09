@@ -9,12 +9,16 @@ import 'animate.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCancel } from "@fortawesome/free-solid-svg-icons";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import store from "../Store";
 
 export default function CategoryForm(props) {
   const { dispatch, setCardClick } = props;
   const [categoryName, setCategoryName] = useState("");
 
   const handleAddCategory = async () => {
+    if (!store.getState().store) {
+      return toast.error("Create your store first");
+    }
     if (!categoryName) {
       return toast.error("Category cannot be empty!");
     }

@@ -50,6 +50,10 @@ export default function AddProductForm(props) {
 
   const handleAddProduct = async () => {
     const sellerId = store.getState().user._id;
+
+    if (!store.getState().store) {
+      return toast.error("Create your store first");
+    }
     const storeId = store.getState().store._id;
 
     if (!productName) {
@@ -108,7 +112,7 @@ export default function AddProductForm(props) {
       className={`${styles.container} animate__animated animate__faster animate__fadeIn`}
     >
       <div className={styles.wrapper}>
-        <p className={styles.heading}>Create your Store</p>
+        <p className={styles.heading}>Add new Product</p>
         <FontAwesomeIcon
           onClick={() => setCardClick("")}
           className={styles.removeIcon}

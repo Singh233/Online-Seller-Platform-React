@@ -11,6 +11,7 @@ import { faCancel } from "@fortawesome/free-solid-svg-icons";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
 import Dropdown from "./Dropdown";
+import store from "../Store";
 
 export default function SubcategoryForm(props) {
   const { dispatch, categoriesReducer, setCardClick } = props;
@@ -19,6 +20,9 @@ export default function SubcategoryForm(props) {
   const [categoryId, setCategoryId] = useState("");
 
   const handleAddCategory = async () => {
+    if (!store.getState().store) {
+      return toast.error("Create your store first");
+    }
     if (!categoryId) {
       return toast.error("Please choose category also!");
     }
