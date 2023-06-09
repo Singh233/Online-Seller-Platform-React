@@ -10,6 +10,7 @@ import {
 } from "../utils";
 import Navbar from "./Navbar";
 import Dashboard from "../pages/Dashboard";
+import StoreFront from "../pages/StoreFront";
 
 function PrivateRoute({ children }) {
   return getItemInLocalStorage(LOCALSTORAGE_TOKEN_KEY) ? (
@@ -28,6 +29,16 @@ function App() {
           <PrivateRoute>
             <Navbar />
             <Dashboard />
+          </PrivateRoute>
+        }
+      />
+
+      <Route
+        path="/store/:storeName"
+        element={
+          <PrivateRoute>
+            <Navbar />
+            <StoreFront />
           </PrivateRoute>
         }
       />

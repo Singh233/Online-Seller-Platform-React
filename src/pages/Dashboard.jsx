@@ -23,7 +23,7 @@ import {
   getItemInLocalStorage,
   removeItemInLocalStorage,
 } from "../utils";
-import { Navigate, useNavigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import store from "../Store";
 import { getSellerProfile } from "../api";
 import jwtDecode from "jwt-decode";
@@ -43,6 +43,7 @@ function Dashboard(props) {
 
   const [cardClick, setCardClick] = useState("");
   const navigate = useNavigate();
+  const businessName = store.getState().user.businessName;
 
   useEffect(() => {
     const sellerProfile = async () => {
@@ -73,7 +74,10 @@ function Dashboard(props) {
     <div className={styles.container}>
       <div className={styles.urlCard}>
         <p className={styles.info}>Your Store's URL</p>
-        <p className={styles.url}>https://example.com</p>
+
+        <Link className={styles.url} to={`http://127.0.0.1:5173/store/${businessName}`}>
+          http://127.0.0.1:5173/store/{businessName}
+        </Link>
       </div>
 
       <div className={styles.statsWrapper}></div>

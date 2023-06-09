@@ -1,0 +1,120 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .heading {
+    height: 350px;
+    width: 100vw;
+    background-color: dodgerblue;
+    margin-top: -100px;
+    position: relative;
+    z-index: -1;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.97)),
+      url(../assets/bgAbstract.jpg);
+    background-size: cover;
+
+    p {
+      font-family: "Poppins";
+      font-size: 3rem;
+      font-weight: 600;
+      margin-top: 100px;
+      color: white;
+    }
+  }
+
+  .subHeading {
+    color: rgba(255, 255, 255, 0.585);
+    margin: 20px;
+    margin-top: -100px;
+    text-align: center;
+    max-width: 300px;
+  }
+
+  input {
+    align-self: center;
+    padding: 15px 20px;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    margin: 5px;
+    background-color: transparent;
+    border: 1px solid rgb(55, 55, 55);
+    font-size: 1.1rem;
+    min-width: 500px;
+    color: white;
+    margin-top: 0px;
+
+    transition: all 0.3s ease-in-out;
+
+    
+
+    &:focus {
+      border: 1px solid #3c37ff;
+    }
+  }
+
+  .label {
+    color: white;
+    align-self: flex-start;
+    margin-left: 20px;
+    font-size: 2rem;
+    font-family: "poppins";
+    display: flex;
+    align-items: center;
+
+    span {
+      margin-left: 10px;
+      font-size: 1.2rem;
+      padding: 5px 15px;
+      background-color: #212121;
+      border-radius: 10px;
+    }
+  }
+
+  .categoriesList {
+    display: flex;
+    align-items: center;
+    color: white;
+
+    .categoryCard {
+      padding: 20px;
+      background-color: #212121;
+      border-radius: 20px;
+      margin: 10px;
+    }
+  }
+
+  .productsList {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+  }
+}
+
+
+// responsive design
+@media screen and (max-width: 1250px) {
+  .container {
+
+      .productsList {
+          grid-template-columns: repeat(2, 1fr);
+      }
+
+  }
+}
+
+@media screen and (max-width: 820px) {
+
+  .container {
+
+      .productsList {
+          grid-template-columns: repeat(1, 1fr);
+      }
+
+  }
+}

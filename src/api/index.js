@@ -81,6 +81,12 @@ export const getSellerProfile = (id) => {
   });
 };
 
+export const getStoreFront = (storeName) => {
+  return customFetch(API_URLS.getStore(storeName), {
+    method: "GET",
+  });
+};
+
 export const addProduct = (sellerId, storeId, categoryId, subcategoryId, productName, MRP, SP, QTY, file) => {
 
   const formData = new FormData();
