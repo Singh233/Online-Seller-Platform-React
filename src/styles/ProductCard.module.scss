@@ -17,7 +17,7 @@ $colorGray: rgba(51, 52, 54, 0.682);
     align-items: center;
     justify-content: space-evenly;
     border-radius: 20px;
-    background-color: #212121;
+    background-color: #212121ab;
     margin: 10px;
     color: white;
 
@@ -32,7 +32,7 @@ $colorGray: rgba(51, 52, 54, 0.682);
         align-items: center;
         justify-content: space-evenly;
         border-radius: 19.5px;
-        background-color: #212121;
+        background-color: #212121ab;
         -webkit-backdrop-filter: blur(5px);
         backdrop-filter: blur(5px);
     
@@ -111,7 +111,9 @@ $colorGray: rgba(51, 52, 54, 0.682);
                 position: relative;
                 z-index: 2;
                 height: 220px;
-                margin-top: -0px;
+                max-width: 370px;
+                object-fit: cover;
+                margin-top: -10px;
                 border-radius: 20px;
             }
             
