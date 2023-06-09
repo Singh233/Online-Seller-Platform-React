@@ -4,10 +4,14 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 
 /* Option dropdownContainer styling */
 .dropdownContainer .selectOption {
+  position: absolute;
+    top: 0%;
+  
   overflow: hidden;
   padding: 0px;
   padding-left: 20px;
@@ -25,7 +29,7 @@
 
 /* Display options on hover */
 .dropdownContainer .selectOption:hover {
-  height: 215px;
+  height: max-content;
   border: 1px solid rgba(255, 255, 255, 0.262);
 }
 

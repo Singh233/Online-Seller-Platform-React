@@ -3,8 +3,15 @@ import { toast } from "react-hot-toast";
 import { addCategory } from "../actions";
 import { createCategory } from "../api";
 
+import styles from "../styles/CategoryForm.module.scss";
+import 'animate.css';
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCancel } from "@fortawesome/free-solid-svg-icons";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
+
 export default function CategoryForm(props) {
-  const { dispatch, categoriesReducer } = props;
+  const { dispatch, setCardClick } = props;
   const [categoryName, setCategoryName] = useState("");
 
   const handleAddCategory = async () => {
@@ -19,19 +26,30 @@ export default function CategoryForm(props) {
 
     if (response.success) {
       dispatch(addCategory(response.data.category));
-      setCategoryName('');
+      setCategoryName("");
     }
   };
   return (
-    <div>
-      <input
-        type="text"
-        value={categoryName}
-        onChange={(e) => {
-          setCategoryName(e.target.value);
-        }}
-      />
-      <button onClick={handleAddCategory}>Add Category</button>
+    <div className={`${styles.container} animate__animated animate__faster animate__fadeIn`}>
+      <div className={styles.wrapper}>
+        <p className={styles.heading}>Add new Category</p>
+        <FontAwesomeIcon
+          onClick={() => setCardClick("")}
+          className={styles.removeIcon}
+          icon={faXmark}
+        />
+        <input
+          type="text"
+          placeholder="Enter category name"
+          value={categoryName}
+          onChange={(e) => {
+            setCategoryName(e.target.value);
+          }}
+        />
+        <button className={styles.submitButton} onClick={handleAddCategory}>
+          Add Category
+        </button>
+      </div>
     </div>
   );
 }

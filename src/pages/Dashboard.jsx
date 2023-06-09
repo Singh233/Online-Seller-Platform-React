@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 import styles from "../styles/Dashboard.module.scss";
 
@@ -40,6 +40,8 @@ function Dashboard(props) {
     categoriesReducer,
     subcategoriesReducer,
   } = props;
+
+  const [cardClick, setCardClick] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -77,19 +79,37 @@ function Dashboard(props) {
       <div className={styles.statsWrapper}></div>
 
       <div className={styles.cardsWrapper}>
-        <div className={styles.addCategoryCard}>
+        <div
+          onClick={() => setCardClick("CREATESTORE")}
+          className={styles.addStoreCard}
+        >
+          <p>
+            <FontAwesomeIcon icon={faBox} />
+            Create Store
+          </p>
+        </div>
+        <div
+          onClick={() => setCardClick("CREATECATEGORY")}
+          className={styles.addCategoryCard}
+        >
           <p>
             <FontAwesomeIcon icon={faBox} />
             Add new Category
           </p>
         </div>
-        <div className={styles.addSubCategoryCard}>
+        <div
+          onClick={() => setCardClick("CREATESUBCATEGORY")}
+          className={styles.addSubCategoryCard}
+        >
           <p>
             <FontAwesomeIcon icon={faSquarePollHorizontal} />
             Add new Sub-category
           </p>
         </div>
-        <div className={styles.addInventoryCard}>
+        <div
+          onClick={() => setCardClick("CREATEPRODUCT")}
+          className={styles.addInventoryCard}
+        >
           <p>
             <FontAwesomeIcon icon={faBoxesStacked} />
             Add new Product to your inventory
@@ -99,21 +119,33 @@ function Dashboard(props) {
 
       <button onClick={handleLogout}>Logout</button>
 
-      <CategoryForm dispatch={dispatch} categoriesReducer={categoriesReducer} />
-      <SubcategoryForm
-        dispatch={dispatch}
-        categoriesReducer={categoriesReducer}
-        subcategoriesReducer={subcategoriesReducer}
-      />
-      <AddProductForm
-        dispatch={dispatch}
-        categoriesReducer={categoriesReducer}
-        subcategoriesReducer={subcategoriesReducer}
-        userReducer={userReducer}
-        storeReducer={storeReducer}
-      />
-
-      <AddStoreForm dispatch={dispatch}/>
+      {cardClick === "CREATESTORE" ? (
+        <AddStoreForm dispatch={dispatch} setCardClick={setCardClick} />
+      ) : cardClick === "CREATECATEGORY" ? (
+        <CategoryForm
+          dispatch={dispatch}
+          categoriesReducer={categoriesReducer}
+          setCardClick={setCardClick}
+        />
+      ) : cardClick === "CREATESUBCATEGORY" ? (
+        <SubcategoryForm
+          dispatch={dispatch}
+          categoriesReducer={categoriesReducer}
+          subcategoriesReducer={subcategoriesReducer}
+          setCardClick={setCardClick}
+        />
+      ) : cardClick === "CREATEPRODUCT" ? (
+        <AddProductForm
+          dispatch={dispatch}
+          categoriesReducer={categoriesReducer}
+          subcategoriesReducer={subcategoriesReducer}
+          userReducer={userReducer}
+          storeReducer={storeReducer}
+          setCardClick={setCardClick}
+        />
+      ) : (
+        ""
+      )}
     </div>
   );
 }

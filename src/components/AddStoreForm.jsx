@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from "react";
 
-import styles from "../styles/AddProductForm.module.scss";
+import styles from "../styles/AddStoreForm.module.scss";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCaretUp } from "@fortawesome/free-solid-svg-icons";
-import { faThumbsUp } from "@fortawesome/free-solid-svg-icons";
-import { faThumbsDown } from "@fortawesome/free-solid-svg-icons";
-import { faFaceGrinBeamSweat } from "@fortawesome/free-solid-svg-icons";
+import { faCancel } from "@fortawesome/free-solid-svg-icons";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
 // Import React FilePond
 import { FilePond, registerPlugin } from "react-filepond";
 // Import FilePond styles
 import "filepond/dist/filepond.min.css";
 import "../styles/filepond.css";
+import 'animate.css';
+
 import FilePondPluginImageExifOrientation from "filepond-plugin-image-exif-orientation";
 import FilePondPluginImagePreview from "filepond-plugin-image-preview";
 import FilePondPluginFileValidateType from "filepond-plugin-file-validate-type";
@@ -33,7 +33,7 @@ registerPlugin(
 );
 
 export default function AddStoreForm(props) {
-  const { dispatch } = props;
+  const { dispatch, setCardClick } = props;
 
   const [address, setAddress] = useState("");
   const [gst, setGst] = useState("");
@@ -72,42 +72,53 @@ export default function AddStoreForm(props) {
   };
 
   return (
-    <div id="new-store-form">
-      <input
-        type="text"
-        placeholder="Enter address"
-        value={address}
-        onChange={(e) => setAddress(e.target.value)}
-      />
-      <input
-        type="number"
-        placeholder="Enter GST number"
-        value={gst}
-        onChange={(e) => setGst(e.target.value)}
-      />
-      <input
-        type="number"
-        placeholder="Enter store timings"
-        value={storeTimings}
-        onChange={(e) => setStoreTimings(e.target.value)}
-      />
-      <FilePond
-        files={file}
-        onupdatefiles={(fileItems) => {
-          // Set currently active file objects to this.state
-          setFile(fileItems.map((fileItem) => fileItem.file));
-        }}
-        allowMultiple={false}
-        maxFiles={1}
-        allowFileTypeValidation={true}
-        acceptedFileTypes={["image/*"]}
-        allowFileSizeValidation={true}
-        maxFileSize={"5MB"}
-        name="filepond" /* sets the file input name, it's filepond by default */
-        labelIdle='Drag & Drop your files or <span class="filepond--label-action">Browse</span>'
-      />
+    <div className={`${styles.container} animate__animated animate__faster animate__fadeIn`}>
+      <div className={styles.wrapper}>
+        <p className={styles.heading}>Create your Store</p>
+        <FontAwesomeIcon
+          onClick={() => setCardClick("")}
+          className={styles.removeIcon}
+          icon={faXmark}
+        />
+        <FilePond
+          files={file}
+          onupdatefiles={(fileItems) => {
+            // Set currently active file objects to this.state
+            setFile(fileItems.map((fileItem) => fileItem.file));
+          }}
+          stylePanelLayout={"circle"}
+          allowMultiple={false}
+          maxFiles={1}
+          allowFileTypeValidation={true}
+          acceptedFileTypes={["image/*"]}
+          allowFileSizeValidation={true}
+          maxFileSize={"5MB"}
+          name="filepond" /* sets the file input name, it's filepond by default */
+          labelIdle='Upload your logo. Drag & Drop or <span class="filepond--label-action">Browse</span>'
+        />
+        <input
+          type="text"
+          placeholder="Enter address"
+          value={address}
+          onChange={(e) => setAddress(e.target.value)}
+        />
+        <input
+          type="number"
+          placeholder="Enter GST number"
+          value={gst}
+          onChange={(e) => setGst(e.target.value)}
+        />
+        <input
+          type="number"
+          placeholder="Enter store timings"
+          value={storeTimings}
+          onChange={(e) => setStoreTimings(e.target.value)}
+        />
 
-      <button onClick={handleAddStore}>Create Store</button>
+        <button className={styles.submitButton} onClick={handleAddStore}>
+          Create Store
+        </button>
+      </div>
     </div>
   );
 }
