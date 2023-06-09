@@ -5,8 +5,8 @@ const development = {
 
 const production = {
     // API_URL: 'https://social-api-taxhp.ondigitalocean.app/api/v1',
-    API_URL: 'https://sanam.social/api/v1',
+    API_URL: 'https://sellerapi.sanam.tech/api/v1',
 }
 
 
-export default development;
+export default production;

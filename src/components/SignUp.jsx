@@ -40,7 +40,7 @@ export default function SignUp(props) {
         LOCALSTORAGE_TOKEN_KEY,
         response.data.token ? response.data.token : null
       );
-      dispatch(setUser(response.data.user));
+      dispatch(setUser(response.data.seller));
       navigate("/");
       return toast.success("Registered successfully!");
 
