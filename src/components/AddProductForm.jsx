@@ -91,7 +91,6 @@ export default function AddProductForm(props) {
       }
     );
 
-    console.log(response);
     if (response.success) {
       dispatch(addInventoryItem(response.data));
       setProductName("");

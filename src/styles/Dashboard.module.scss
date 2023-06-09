@@ -31,6 +31,17 @@
       border-radius: 10px;
       margin: 10px;
     }
+
+    .warning {
+      background-color: darkorange;
+      text-decoration: none;
+      color: white;
+
+      // background-color: black;
+      padding: 10px 20px;
+      border-radius: 10px;
+      margin: 10px;
+    }
   }
 
   .cardsWrapper {
@@ -41,6 +52,7 @@
 
     .addCategoryCard,
     .addStoreCard,
+    .storeAdded,
     .addSubCategoryCard,
     .addInventoryCard {
       display: flex;
@@ -63,6 +75,11 @@
           margin-right: 10px;
         }
       }
+    }
+
+    .storeAdded {
+      background-color: rgba(172, 255, 47, 0.488);
+      border: 1px solid greenyellow;
     }
   }
 }

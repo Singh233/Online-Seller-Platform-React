@@ -5,7 +5,7 @@ import env from "../utils/env";
 
 // fontawesome for icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBagShopping } from "@fortawesome/free-solid-svg-icons";
+import { faBagShopping, faCheck } from "@fortawesome/free-solid-svg-icons";
 import { faSquarePollHorizontal } from "@fortawesome/free-solid-svg-icons";
 import { faBox } from "@fortawesome/free-solid-svg-icons";
 import { faBoxesStacked } from "@fortawesome/free-solid-svg-icons";
@@ -75,27 +75,39 @@ function Dashboard(props) {
     <div className={styles.container}>
       <div className={styles.urlCard}>
         <p className={styles.info}>Your Store's URL</p>
-
-        <Link
-          className={styles.url}
-          to={`${env.STORE_URL}/store/${businessName}`}
-        >
-          {env.STORE_URL}/store/{businessName}
-        </Link>
+        {store.getState() && store.getState().store ? (
+          <Link
+            className={styles.url}
+            to={`${env.STORE_URL}/store/${businessName}`}
+          >
+            {env.STORE_URL}/store/{businessName}
+          </Link>
+        ) : (
+          <p className={styles.warning}>Create your store to generate URL</p>
+        )}
       </div>
 
       <div className={styles.statsWrapper}></div>
 
       <div className={styles.cardsWrapper}>
-        <div
-          onClick={() => setCardClick("CREATESTORE")}
-          className={styles.addStoreCard}
-        >
-          <p>
-            <FontAwesomeIcon icon={faBox} />
-            Create Store
-          </p>
-        </div>
+        {store.getState() && !store.getState().store ? (
+          <div
+            onClick={() => setCardClick("CREATESTORE")}
+            className={styles.addStoreCard}
+          >
+            <p>
+              <FontAwesomeIcon icon={faBox} />
+              Create Store
+            </p>
+          </div>
+        ) : (
+          <div className={styles.storeAdded}>
+            <p>
+              <FontAwesomeIcon icon={faCheck} />
+              Store Created
+            </p>
+          </div>
+        )}
         <div
           onClick={() => setCardClick("CREATECATEGORY")}
           className={styles.addCategoryCard}

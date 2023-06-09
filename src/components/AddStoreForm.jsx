@@ -66,6 +66,7 @@ export default function AddStoreForm(props) {
       setGst("");
       setStoreTimings("");
       setFile("");
+      setCardClick("")
       return;
     }
     toast.error("Something went wrong. Try again later!");

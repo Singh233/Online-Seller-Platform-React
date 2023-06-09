@@ -83,7 +83,6 @@ const storeReducer = (state = initialStoreState, action) => {
 const categoriesReducer = (state = initialCategoriesState, action) => {
   switch (action.type) {
     case ADD_CATEGORY:
-      console.log([...state, action.payload])
       return [...state, action.payload];
     case SET_CATEGORY:
       return action.payload;

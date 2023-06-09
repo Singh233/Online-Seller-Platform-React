@@ -69,7 +69,7 @@ export default function Navbar() {
                 </div>
 
                 <div className={styles.navIcons}>
-                <Link onClick={() => ref.current.complete()} className={`${selected === '/Ecommerce-React-App/user' ? styles.selected : ''}`} to="/Ecommerce-React-App/user">
+                <Link onClick={() => ref.current.complete()} className={`${selected === '/' ? styles.selected : ''}`} to="/">
                         <FontAwesomeIcon icon={faCircleUser} />
                     </Link>
                     
