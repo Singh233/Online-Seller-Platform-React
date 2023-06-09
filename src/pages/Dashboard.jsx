@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 import styles from "../styles/Dashboard.module.scss";
+import env from "../utils/env";
 
 // fontawesome for icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -75,8 +76,11 @@ function Dashboard(props) {
       <div className={styles.urlCard}>
         <p className={styles.info}>Your Store's URL</p>
 
-        <Link className={styles.url} to={`http://127.0.0.1:5173/store/${businessName}`}>
-          http://127.0.0.1:5173/store/{businessName}
+        <Link
+          className={styles.url}
+          to={`${env.STORE_URL}/store/${businessName}`}
+        >
+          {env.STORE_URL}/store/{businessName}
         </Link>
       </div>
 

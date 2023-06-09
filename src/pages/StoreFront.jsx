@@ -8,11 +8,12 @@ export default function StoreFront() {
   const [categories, setCategories] = useState([]);
   const [subCategories, setSubCategories] = useState([]);
   const [searchText, setSearchText] = useState("");
+  let path = window.location.pathname.split("/");
+  path = path[path.length - 1];
 
   useEffect(() => {
     const getStore = async () => {
-      let path = window.location.pathname.split("/");
-      path = path[path.length - 1];
+      
 
       const response = await getStoreFront(path);
 
@@ -27,7 +28,7 @@ export default function StoreFront() {
   return (
     <div className={styles.container}>
       <div className={styles.heading}>
-        <p>Welcome to Top G Store</p>
+        <p>Welcome to {path} Store</p>
       </div>
       <p className={styles.subHeading}>
         Explore and Search anything you would like to buy on store!
