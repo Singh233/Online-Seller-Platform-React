@@ -111,7 +111,7 @@ export default function AddStoreForm(props) {
           onChange={(e) => setGst(e.target.value)}
         />
         <input
-          type="number"
+          type="text"
           placeholder="Enter store timings"
           value={storeTimings}
           onChange={(e) => setStoreTimings(e.target.value)}

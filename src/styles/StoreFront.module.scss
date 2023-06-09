@@ -1,3 +1,4 @@
+
 .container {
   display: flex;
   flex-direction: column;
@@ -20,7 +21,9 @@
     background-size: cover;
 
     p {
-      font-family: "poppins", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      font-family: "poppins", system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+        "Helvetica Neue", sans-serif;
       font-size: 3rem;
       font-weight: 600;
       color: white;
@@ -60,8 +63,6 @@
     margin-top: 20px;
 
     transition: all 0.3s ease-in-out;
-
-    
 
     &:focus {
       border: 1px solid #3c37ff;
@@ -107,7 +108,9 @@
     align-self: flex-start;
     margin-left: 20px;
     font-size: 2rem;
-    font-family: "poppins", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: "poppins", system-ui, -apple-system, BlinkMacSystemFont,
+      "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+      "Helvetica Neue", sans-serif;
     display: flex;
     align-items: center;
 
@@ -144,25 +147,92 @@
   }
 }
 
-
 // responsive design
 @media screen and (max-width: 1250px) {
   .container {
-
-      .productsList {
-          grid-template-columns: repeat(2, 1fr);
-      }
-
+    .productsList {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 }
 
 @media screen and (max-width: 820px) {
-
   .container {
+    .productsList {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+}
 
-      .productsList {
-          grid-template-columns: repeat(1, 1fr);
+@media screen and (max-width: 750px) {
+  .container {
+    .heading {
+      p {
+        font-size: 2rem;
+      }
+    }
+
+    .productsList {
+      grid-template-columns: repeat(1, 1fr);
+    }
+
+    .statsList {
+
+      .card {
+        .cardHeading {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+}
+
+
+@media screen and (max-width: 500px) {
+  .container {
+    .heading {
+      p {
+        font-size: 1.4rem;
       }
 
+      
+
+      img {
+        height: 80px;
+        width: 80px;
+      }
+    }
+
+    .subHeading {
+      font-size: 0.9rem;
+    }
+
+    input {
+      font-size: 1rem;
+      min-width: 300px !important;
+    }
+
+    .label {
+      font-size: 1.2rem;
+      align-self: center;
+
+      span {
+        font-size: 1rem;
+      }
+    }
+
+    .productsList {
+      grid-template-columns: repeat(1, 1fr);
+    }
+
+    .statsList {
+      flex-wrap: wrap;
+
+      .card {
+        .cardHeading {
+          font-size: 1rem;
+        }
+      }
+    }
   }
 }

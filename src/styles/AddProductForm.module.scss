@@ -113,3 +113,34 @@
 
   }
 }
+
+@media screen and (max-width: 500px) {
+  .container {
+    background-color: rgba(0, 0, 0, 0.835);
+    border: none;
+    height: 75vh;
+
+    .wrapper {
+      .heading {
+        font-size: 1.1rem;
+      }
+      .customPosition1 {
+        position: relative;
+        z-index: 999;
+        margin-right: 0px;
+      }
+  
+      .customPosition2 {
+        margin-left: 0px;
+        margin-top: 70px;
+      }
+      input {
+        min-width: 300px;
+      }
+
+      .submitButton {
+        min-width: 300px;
+      }
+    }
+  }
+}

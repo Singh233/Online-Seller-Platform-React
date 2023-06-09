@@ -42,9 +42,7 @@ export default function AddProductForm(props) {
   const [QTY, setQTY] = useState("");
   const [file, setFile] = useState([]);
   const [categoryName, setCategoryName] = useState("Please select category");
-  const [subCategoryName, setSubCategoryName] = useState(
-    "Please select sub"
-  );
+  const [subCategoryName, setSubCategoryName] = useState("Please select sub");
   const [categoryId, setCategoryId] = useState("");
   const [subcategoryId, setSubcategoryId] = useState("");
 
@@ -144,19 +142,17 @@ export default function AddProductForm(props) {
         </div>
 
         <div className={styles.customPosition2}>
-        <Dropdown
-          categories={subcategoriesReducer}
-          categoryName={subCategoryName}
-          setCategoryName={setSubCategoryName}
-          categoryId={subcategoryId}
-          setCategoryId={setSubcategoryId}
-        />
+          <Dropdown
+            categories={subcategoriesReducer}
+            categoryName={subCategoryName}
+            setCategoryName={setSubCategoryName}
+            categoryId={subcategoryId}
+            setCategoryId={setSubcategoryId}
+          />
         </div>
 
-        
-
         <input
-        className={styles.firstInput}
+          className={styles.firstInput}
           type="text"
           placeholder="Product name"
           value={productName}
@@ -170,15 +166,15 @@ export default function AddProductForm(props) {
         />
         <input
           type="number"
-          placeholder="Enter quantity"
-          value={QTY}
-          onChange={(e) => setQTY(e.target.value)}
-        />
-        <input
-          type="number"
           placeholder="Enter Selling price"
           value={SP}
           onChange={(e) => setSP(e.target.value)}
+        />
+        <input
+          type="number"
+          placeholder="Enter quantity"
+          value={QTY}
+          onChange={(e) => setQTY(e.target.value)}
         />
 
         <button className={styles.submitButton} onClick={handleAddProduct}>

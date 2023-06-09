@@ -2,9 +2,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow-x: hidden !important;
 
   background-color: black;
-  height: 100vh;
+  height: 90vh;
   width: 100%;
   color: white;
 
@@ -30,6 +31,10 @@
       padding: 10px 20px;
       border-radius: 10px;
       margin: 10px;
+
+      svg {
+        margin-left: 10px;
+      }
     }
 
     .warning {
@@ -80,6 +85,47 @@
     .storeAdded {
       background-color: rgba(172, 255, 47, 0.488);
       border: 1px solid greenyellow;
+    }
+
+    
+  }
+
+  .logoutButton {
+    align-self: center;
+    padding: 10px 20px;
+    background-color: #3c37ff;
+    color: white;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: all 0.2s ease-out;
+
+    &:hover {
+      background-color: lighten($color: #3c37ff, $amount: 10%);
+    }
+  }
+}
+
+
+@media screen and (max-width: 500px) {
+
+  .container {
+      
+
+    .urlCard {
+      margin-top: 20px;
+      flex-direction: column;
+      min-width: 300px;
+      border-radius: 0;
+
+      .url {
+        svg {
+          display: none;
+        }
+      }
     }
   }
 }

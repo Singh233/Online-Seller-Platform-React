@@ -94,3 +94,25 @@
 
   }
 }
+
+@media screen and (max-width: 500px) {
+  .container {
+    background-color: rgba(0, 0, 0, 0.835);
+    border: none;
+    height: 75vh;
+
+    .wrapper {
+      .heading {
+        font-size: 1.1rem;
+      }
+
+      input {
+        min-width: 300px;
+      }
+
+      .submitButton {
+        min-width: 300px;
+      }
+    }
+  }
+}

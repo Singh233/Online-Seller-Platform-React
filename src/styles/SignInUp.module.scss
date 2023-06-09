@@ -83,9 +83,10 @@
         outline: none;
         border: none;
         margin: 5px;
-        background-color: white;
+        background-color: rgba(0, 0, 0, 0.781);
         font-size: 1rem;
-        border: 1px solid gray;
+        border: 1px solid rgb(38, 38, 38);
+        color: white;
 
         transition: all 0.3s ease-in-out;
 
@@ -102,6 +103,12 @@
         outline: none;
         border-radius: 10px;
         font-size: 1rem;
+        cursor: pointer;
+        transition: all 0.2s ease-out;
+
+        &:hover {
+          background-color: lighten($color: #3c37ff, $amount: 10%);
+        }
       }
     }
   }
@@ -194,10 +201,10 @@
         outline: none;
         border: none;
         margin: 5px;
-        background-color: gray;
+        background-color: rgba(0, 0, 0, 0.781);
         color: white;
         font-size: 1rem;
-        border: 1px solid gray;
+        border: 1px solid rgb(45, 45, 45);
 
         transition: all 0.3s ease-in-out;
 
@@ -214,6 +221,78 @@
         outline: none;
         border-radius: 10px;
         font-size: 1rem;
+        cursor: pointer;
+        transition: all 0.2s ease-out;
+
+        &:hover {
+          background-color: lighten($color: #3c37ff, $amount: 10%);
+        }
+      }
+    }
+  }
+}
+
+
+@media screen and (max-width: 500px) {
+  .loginContainer {
+
+
+    .wrapper {
+      grid-template-columns: 1fr;
+      grid-template-rows: 2fr 2fr;
+
+      min-height: 100%;
+      border: 0;
+      background-color: black;
+
+      .leftInfoContainer {
+        margin: 0;
+
+      }
+
+      .rightInputContainer {
+
+        input {
+          min-width: 300px;
+          background-color: #212121;
+        }
+
+        button {
+          min-width: 200px;
+          margin-top: 20px;
+        }
+      }
+
+    }
+  }
+
+  .registerContainer {
+
+
+    .wrapper {
+      grid-template-columns: 1fr;
+      grid-template-rows: 2fr 2fr;
+
+      min-height: 100%;
+      border: 0;
+      background-color: black;
+
+      .leftInfoContainer {
+        margin: 0;
+        
+      }
+
+      .rightInputContainer {
+
+        input {
+          min-width: 300px;
+          background-color: #212121;
+        }
+
+        button {
+          min-width: 200px;
+          margin-top: 20px;
+        }
       }
     }
   }

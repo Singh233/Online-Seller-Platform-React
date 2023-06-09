@@ -5,7 +5,7 @@ import env from "../utils/env";
 
 // fontawesome for icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBagShopping, faCheck } from "@fortawesome/free-solid-svg-icons";
+import { faBagShopping, faCheck, faUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 import { faSquarePollHorizontal } from "@fortawesome/free-solid-svg-icons";
 import { faBox } from "@fortawesome/free-solid-svg-icons";
 import { faBoxesStacked } from "@fortawesome/free-solid-svg-icons";
@@ -81,6 +81,8 @@ function Dashboard(props) {
             to={`${env.STORE_URL}/store/${businessName}`}
           >
             {env.STORE_URL}/store/{businessName}
+            <FontAwesomeIcon icon={faUpRightFromSquare} />
+
           </Link>
         ) : (
           <p className={styles.warning}>Create your store to generate URL</p>
@@ -137,7 +139,7 @@ function Dashboard(props) {
         </div>
       </div>
 
-      <button onClick={handleLogout}>Logout</button>
+      <button className={styles.logoutButton} onClick={handleLogout}>Logout</button>
 
       {cardClick === "CREATESTORE" ? (
         <AddStoreForm dispatch={dispatch} setCardClick={setCardClick} />
